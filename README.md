@@ -1,4 +1,3 @@
-```markdown
 # GitHub Repositories Listing
 
 This web application allows users to fetch and display GitHub repositories for a given username. It provides features like dynamic repository per page selection, loading indicators.
