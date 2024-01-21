@@ -120,17 +120,37 @@ button:hover {
 }
 
 .repo-item {
+  flex-basis: calc(48% - 20px);
+  box-sizing: border-box;
   border: 2px solid rgb(208, 187, 227);
   padding: 15px;
   margin: 10px;
-  width: calc(48% - 20px);
-  box-sizing: border-box;
   border-radius: 8px;
 }
 
 .repo-item h3 {
   margin-top: 0;
   color: rgb(186, 137, 233);
+}
+
+.repo-item .description {
+  margin-bottom: 10px;
+}
+
+.repo-item .tech-stack {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .repo-item {
+    flex-basis: calc(100% - 20px);
+  }
+}
+
+.tech-stack {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .tech {
@@ -168,9 +188,4 @@ button:hover {
 
 .pagination button:hover {
   background-color: rgb(170, 96, 239);
-}
-
-.pagination .prev-icon,
-.pagination .next-icon {
-  margin-right: 5px;
 }

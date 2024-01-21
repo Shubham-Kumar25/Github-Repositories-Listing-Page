@@ -1,4 +1,3 @@
-// Elements from the HTML document
 const loader = document.getElementById("loader");
 const profileImage = document.getElementById("profileImage");
 const usernameElement = document.getElementById("username");
@@ -6,11 +5,11 @@ const userBioElement = document.getElementById("userBio");
 const userLocationElement = document.getElementById("userLocation");
 const repoList = document.getElementById("repoList");
 const paginationButtons = document.getElementById("paginationButtons");
+const reposPerPageSelect = document.getElementById("reposPerPageSelect");
 
 let currentPage = 1;
-const reposPerPage = 10;
+let reposPerPage = parseInt(reposPerPageSelect.value);
 
-// Function to fetch and display user repositories
 function fetchRepositories() {
   const usernameInput = document.getElementById("usernameInput");
   const username = usernameInput.value.trim();
@@ -35,7 +34,6 @@ function fetchRepositories() {
     .finally(() => (loader.style.display = "none"));
 }
 
-// Function to render user repositories
 function renderRepositories(repositories) {
   const user = repositories.length > 0 ? repositories[0].owner : null;
   updateProfileInfo(user);
@@ -58,19 +56,19 @@ function renderRepositories(repositories) {
   renderPagination(repositories.length);
 }
 
-// Function to render a single repository item
 function renderRepoItem(repo, languages) {
   const repoItem = document.createElement("div");
   repoItem.className = "repo-item";
   repoItem.innerHTML = `
     <h3>${repo.name}</h3>
-    <p>${repo.description || "No description available"}</p>
+    <div class="description">${
+      repo.description || "No description available"
+    }</div>
     <div class="tech-stack">${renderTechStack(languages)}</div>
   `;
   repoList.appendChild(repoItem);
 }
 
-// Function to render the tech stack for a repository
 function renderTechStack(languages) {
   return languages && Object.keys(languages).length > 0
     ? Object.keys(languages)
@@ -79,7 +77,6 @@ function renderTechStack(languages) {
     : "Not specified";
 }
 
-// Function to update user profile information
 function updateProfileInfo(user) {
   if (user) {
     profileImage.src = user.avatar_url;
@@ -93,9 +90,10 @@ function updateProfileInfo(user) {
   }
 }
 
-// Function to render pagination buttons
 function renderPagination(totalRepos) {
   const totalPages = Math.ceil(totalRepos / reposPerPage);
+
+  paginationButtons.innerHTML = "";
 
   for (let i = 1; i <= totalPages; i++) {
     const button = document.createElement("button");
@@ -108,5 +106,10 @@ function renderPagination(totalRepos) {
   }
 }
 
-// Initial fetch to show some default repositories
+reposPerPageSelect.addEventListener("change", function () {
+  reposPerPage = parseInt(this.value);
+  currentPage = 1;
+  fetchRepositories();
+});
+
 fetchRepositories();

@@ -7,7 +7,6 @@ This web application allows users to fetch and display GitHub repositories for a
 - Default display of 10 repositories per page with an option to choose up to 100 repositories per page.
 - Loading indicators during API calls.
 
-
 ## Getting Started
 
 To run this project locally, follow these steps:
@@ -15,7 +14,7 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone [repository_url]
+   git clone https://github.com/Shubham-Kumar25/Github-Repositories-Listing-Page
    ```
 
 2. Open the `index.html` file in a web browser.
