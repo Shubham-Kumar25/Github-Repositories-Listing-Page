@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+    />
+    <title>Github Repositories Listing</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="choose-repo-per-page">
+        <label for="reposPerPageSelect">Choose Repositories Per Page:</label>
+        <select id="reposPerPageSelect">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+
+      <h1>Github Repositories</h1>
+      <div class="loader" id="loader"></div>
+      <div class="search-container">
+        <input
+          type="text"
+          id="usernameInput"
+          placeholder="Enter Github Username"
+        />
+        <button onclick="fetchRepositories()">Fetch Repositories</button>
+      </div>
+
+      <div class="profile-section">
+        <div class="profile-info">
+          <img
+            id="profileImage"
+            class="profile-image"
+            src=""
+            alt="User Profile Image"
+          />
+          <div class="user-details">
+            <h2 id="username" class="username"></h2>
+            <p id="userBio" class="user-bio"></p>
+            <p id="userLocation" class="user-location"></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="repoList" class="repo-list"></div>
+      <div class="pagination">
+        <div id="paginationButtons" class="pagination-buttons"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
