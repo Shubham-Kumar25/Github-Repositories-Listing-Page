@@ -25,7 +25,6 @@ To run this project locally, follow these steps:
 
 - Enter a valid GitHub username in the input field.
 - Click the "Fetch Repositories" button to display the user's repositories.
-- Optionally, use the search bar to filter repositories.
 
 ## Technologies Used
 
